@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: store-rental-management-systems
+  servlet:
+    multipart:
+      file-size-threshold: 2KB
+      max-file-size: 200MB
+      max-request-size: 215MB
+
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://RITHZINII\UDEMYTSQL;database=dbStoreRental;encrypt=false;trusted_connection=true
+    username: sa
+    password: 12345678
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: com.virith.storerentalmanagementsystems.strategy.ReservedNamingStrategy
+    open-in-view: false
+
