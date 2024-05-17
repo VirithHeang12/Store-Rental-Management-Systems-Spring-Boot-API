@@ -1,5 +1,6 @@
 package com.virith.storerentalmanagementsystems.controller;
 
+import com.virith.storerentalmanagementsystems.constant.StaffConstant;
 import com.virith.storerentalmanagementsystems.dto.StaffDTO;
 import com.virith.storerentalmanagementsystems.service.StaffService;
 import jakarta.validation.Valid;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
-@RequestMapping(value = "/v1/staffs")
+@RequestMapping(value = "/api/v1/staffs")
 @Validated
 @RequiredArgsConstructor
 public class StaffController {
@@ -22,11 +23,18 @@ public class StaffController {
     @PostMapping(value = "", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE, MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_OCTET_STREAM_VALUE})
     public ResponseEntity<String> addNewStaff(@RequestPart(value = "data") @Valid StaffDTO staffDTO, @RequestPart(value = "file") MultipartFile file) {
         staffService.addNewStaff(staffDTO, file);
-        return ResponseEntity.ok("Staff added successfully");
+        return ResponseEntity.ok(StaffConstant.STAFF_ADDED_RESPONSE);
+    }
+
+    @GetMapping(value = "{id}")
+    public ResponseEntity<StaffDTO> getOneStaff(@PathVariable(value = "id") Integer staffID) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(staffService.getStaffById(staffID));
     }
 
     @GetMapping(value = "{id}/photo", produces = MediaType.IMAGE_JPEG_VALUE)
-    public ResponseEntity<?> getPhotoByStaffId(@PathVariable(value = "id") Integer staffID) {
+    public ResponseEntity<?> getPhotoByStaffId(@Valid @PathVariable(value = "id") Integer staffID) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.IMAGE_JPEG);
         headers.setContentDispositionFormData("attachment", "profile" + ".jpg");

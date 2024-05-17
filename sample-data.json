@@ -1,0 +1,57 @@
+[
+    {
+        "staffFirstName": "Heang",
+        "staffLastName": "Virith",
+        "sex": "M",
+        "birthDate": "25-04-2003",
+        "identityCardNumber": "1213141516",
+        "staffPosition": "Backend Developer",
+        "houseNo": "1195",
+        "streetNo": "76K",
+        "sangkat": "Kakab",
+        "khan": "Posenchey",
+        "provinceOrCity": "Phnom Penh",
+        "contactNumber": "0965809296",
+        "personalNumber": "0965809296",
+        "salary": 1000,
+        "hiredDate": "01-10-2024",
+        "stoppedWork": false
+    },
+    {
+        "staffFirstName": "Vorn",
+        "staffLastName": "Bona",
+        "sex": "M",
+        "birthDate": "25-02-2003",
+        "identityCardNumber": "1234558905",
+        "staffPosition": "Database Administrator",
+        "houseNo": "11",
+        "streetNo": "7K",
+        "sangkat": "Kakab",
+        "khan": "Posenchey",
+        "provinceOrCity": "Phnom Penh",
+        "contactNumber": "0965809296",
+        "personalNumber": "0965809296",
+        "salary": 1000,
+        "hiredDate": "01-10-2024",
+        "stoppedWork": false
+    },
+    {
+        "staffFirstName": "Sam",
+        "staffLastName": "Sophin",
+        "sex": "F",
+        "birthDate": "15-12-2004",
+        "identityCardNumber": "1112131415",
+        "staffPosition": "Auditor",
+        "houseNo": "1219",
+        "streetNo": "88A",
+        "sangkat": "Kakab",
+        "khan": "Posenchey",
+        "provinceOrCity": "Phnom Penh",
+        "contactNumber": "0963222753",
+        "personalNumber": "0963222753",
+        "salary": 1500,
+        "hiredDate": "01-09-2024",
+        "stoppedWork": false
+    }
+
+]

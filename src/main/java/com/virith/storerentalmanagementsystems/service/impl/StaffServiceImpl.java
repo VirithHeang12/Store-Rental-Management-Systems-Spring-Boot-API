@@ -1,6 +1,7 @@
 package com.virith.storerentalmanagementsystems.service.impl;
 
 import com.virith.storerentalmanagementsystems.dto.StaffDTO;
+import com.virith.storerentalmanagementsystems.exception.StaffNotFoundException;
 import com.virith.storerentalmanagementsystems.mapper.StaffMapper;
 import com.virith.storerentalmanagementsystems.model.Staff;
 import com.virith.storerentalmanagementsystems.repository.StaffRepository;
@@ -11,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.Optional;
+
 
 @Service
 @RequiredArgsConstructor
@@ -31,7 +33,16 @@ public class StaffServiceImpl implements StaffService {
 
     @Override
     public byte[] getPhoto(Integer staffID) {
-        Staff staff = staffRepository.findById(staffID).orElseThrow(() -> new RuntimeException("Staff not found"));
+        Staff staff = staffRepository
+                .findById(staffID)
+                .orElseThrow(() -> new RuntimeException("Staff not found"));
         return staff.getPhoto();
+    }
+
+    @Override
+    public StaffDTO getStaffById(Integer staffID) {
+        Staff staff = staffRepository.findById(staffID).orElseThrow(() -> new StaffNotFoundException("StaffID", String.valueOf(staffID)));
+        return StaffMapper
+                .toStaffDTO(staff);
     }
 }
